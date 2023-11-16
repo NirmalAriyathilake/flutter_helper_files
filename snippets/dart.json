@@ -1,0 +1,124 @@
+{
+	"Part statement": {
+		"prefix": "pts",
+		"body": [
+			"part '${TM_FILENAME_BASE}.g.dart';",
+		],
+		"description": "Creates a filled-in part statement"
+	},
+	"Bloc event handler": {
+		"prefix": "bloceventhandler",
+		"body": [
+			"(e) async* {${1}}"
+		],
+		"description": "Anonymous Bloc Event Handler"
+	},
+	"Value Object Class": {
+		"prefix": "vobj",
+		"body": [
+			"class ${1} extends ValueObject<${0}> {",
+			"  factory ${1}(${0} input) {",
+			"    return ${1}._(",
+			"      right(input),",
+			"    );",
+			"  }",
+			"",
+			"  const ${1}._(this.value);",
+			"",
+			"  @override",
+			"  final Either<ValueFailure<${0}>, ${0}> value;",
+			"}"
+		],
+		"description": "Create a Value Object Class"
+	},
+	"List Value Object Class": {
+		"prefix": "vobjl",
+		"body": [
+			"class ${1} extends ValueObject<KtList<${0}>> {",
+			"  const ${1}._(this.value);",
+			"",
+			"  @override",
+			"  final Either<ValueFailure<KtList<${0}>>, KtList<${0}>> value;",
+			"",
+			"  factory ${1}(KtList<${0}> input) {",
+			"    return ${1}._(",
+			"      right(input),",
+			"    );",
+			"  }",
+			"",
+			"  int get length => value.getOrElse(emptyList).size;",
+			"",
+			"  bool get isEmpty => length == 0;",
+			"",
+			"  bool get isNotEmpty => length > 0;",
+			"",
+			"}"
+		],
+		"description": "Create a List Value Object Class"
+	},
+	"From Json factory": {
+		"prefix": "fromJson",
+		"body": [
+			"factory ${0:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}}.fromJson(Map<String, dynamic> json) => _$${0:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}}FromJson(json);"
+		],
+		"description": "From Json factory"
+	},
+	"Class File": {
+		"prefix": "classfile",
+		"body": [
+			"class ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g} {",
+			"  ${1}",
+			"}",
+		],
+		"description": "Creates class which shares the name of the file"
+	},
+	"Mixin File": {
+		"prefix": "mixinfile",
+		"body": [
+			"mixin ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g} {",
+			"  ${1}",
+			"}",
+		],
+		"description": "Creates mixin which shares the name of the file"
+	},
+	"Documentation Github": {
+		"prefix": "docg",
+		"body": "/// Github Card: [$1]($0)",
+		"description": "Document Github"
+	},
+	"From Firestore factory": {
+		"prefix": "fromFirestore",
+		"body": [
+			"factory ${0}.fromFirestore(DocumentSnapshot doc) {",
+			"  return ${0}.fromJson(doc.data()).copyWith(id: doc.id);",
+			"}"
+		],
+		"description": "From Firebase factory"
+	},
+	"Log Utils Instance": {
+		"prefix": "logutils",
+		"body": [
+			"static final _logUtils = LogUtils(",
+			"  featureName: \"${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}\",",
+			"  printLog: true,",
+			");",
+		],
+		"description": "Intitiate LogUtils instance",
+	},
+	"File name stateless widget": {
+		"prefix": "statelessWF",
+		"body": [
+			"class ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}} extends StatelessWidget {",
+			"  const ${1}({Key? key}) : super(key: key);",
+			"",
+			"  @override",
+			"  Widget build(BuildContext context) {",
+			"    return ${2: Container}(",
+			"      child: ${3: null},",
+			"    );",
+			"  }",
+			"}",
+		],
+		"description": "Intitiate LogUtils instance",
+	},
+}

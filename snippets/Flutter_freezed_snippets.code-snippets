@@ -1,0 +1,133 @@
+{
+	"Part 'Freezed' statement": {
+		"prefix": "ptf",
+		"body": [
+			"part '${TM_FILENAME_BASE}.freezed.dart';",
+		],
+		"description": "Creates a filled-in freezed part statement"
+	},
+	"Part 'Freezed' with JSON statements": {
+		"prefix": "ptfs",
+		"body": [
+			"part '${TM_FILENAME_BASE}.freezed.dart';",
+			"part '${TM_FILENAME_BASE}.g.dart';",
+		],
+		"description": "Creates a filled-in freezed & JSON part statements"
+	},
+	"Freezed Data Class": {
+		"prefix": "fdataclass",
+		"body": [
+			"@freezed",
+			"class ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}} with _$${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}}{",
+			"  const factory ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}}(${2}) = _${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}};",
+			"}"
+		],
+		"description": "Freezed Data Class"
+	},
+	"Freezed Union": {
+		"prefix": "funion",
+		"body": [
+			"@freezed",
+			"class ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}} with _$${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}}{",
+			"  const factory ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}}.${2}(${4}) = ${3};",
+			"}"
+		],
+		"description": "Freezed Union"
+	},
+	"Freezed Union Case": {
+		"prefix": "funioncase",
+		"body": [
+			"const factory ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}}.${2}(${4}) = ${3};"
+		],
+		"description": "Freezed Union Case"
+	},
+	"Freezed Data Object": {
+		"prefix": "dtos",
+		"body": [
+			"${3:@freezed}",
+			"class ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}} with _$${1:DataClass}{",
+			"  const ${1:DataClass}._();",
+			"",
+			"  const factory ${1:DataClass}({${4}}) = _${1:DataClass};",
+			"",
+			"  factory ${1:DataClass}.fromDomain(${2:${TM_FILENAME_BASE/(.*)_(.*)/${1:/pascalcase}/g}} domain) {",
+			"    return ${1:DataClass}(${6});",
+			"  }",
+			"",
+			"  factory ${1:DataClass}.fromJson(Map<String, dynamic> json) => _$${1:DataClass}FromJson(json);",
+			"",
+			"  ${2:DomainClass} toDomain() {",
+			"    return ${2:DomainClass}(${5});",
+			"  }",
+			"}"
+		],
+		"description": "Freezed Data Object Class"
+	},
+	"Freezed Primitive": {
+		"prefix": "fprimitive",
+		"body": [
+			"part '${TM_FILENAME_BASE}.freezed.dart';",
+			"",
+			"${3:@freezed}",
+			"class ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}} with _$${1:DataClass}{",
+			"  const ${1:PrimitiveClass}._();",
+			"",
+			"  const factory ${1:PrimitiveClass}({${4}}) = _${1:PrimitiveClass};",
+			"",
+			"  factory ${1:PrimitiveClass}.fromDomain(${2:${TM_FILENAME_BASE/(.*)_(.*)/${1:/pascalcase}/g}} value) {",
+			"    return ${1:PrimitiveClass}(${5});",
+			"  }",
+			"",
+			"  ${2:DomainClass} toDomain() {",
+			"    return ${2:DomainClass}(${6});",
+			"  }",
+			"",
+			"}"
+		],
+		"description": "Freezed Data Object Class"
+	},
+	"Freezed Data Class with failure": {
+		"prefix": "fdataf",
+		"body": [
+			"part '${TM_FILENAME_BASE}.freezed.dart';",
+			"",
+			"${2:@freezed}",
+			"class ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}} with _$${1:DataClass}{",
+			"  const ${1:DataClass}._();",
+			"",
+			"  const factory ${1:DataClass}({${3}}) = _${1:DataClass};",
+			"",
+			"  Option<ValueFailure<dynamic>> get failureOption {",
+			"    return ${4}.failureOrUnit.fold(some, (_) => none());",
+			"  }",
+			"}"
+		],
+		"description": "Freezed Data Object Class with failure option"
+	},
+	"Freezed Data Class empty factory": {
+		"prefix": "fempty",
+		"body": [
+			"factory ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}.empty() => ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}(${2});"
+		],
+		"description": "Empty factory",
+	},
+	"Freezed Data Class initial factory": {
+		"prefix": "finitial",
+		"body": [
+			"factory ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}.initial() => ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}(${2});"
+		],
+		"description": "Initial factory",
+	},
+	"Freezed Data Class With JSON": {
+		"prefix": "fdatajson",
+		"body": [
+			"@freezed",
+			"class ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}} with _$${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}}{",
+			"  const factory ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}}(${2}) = _${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}};",
+			"",
+			"  factory ${1:DataClass}.fromJson(Map<String, dynamic> json) => _$${1:DataClass}FromJson(json);",
+			"}"
+		],
+		"description": "Freezed Data Class with json"
+	},
+}

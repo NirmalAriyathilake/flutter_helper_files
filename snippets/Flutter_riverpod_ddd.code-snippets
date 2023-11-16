@@ -1,0 +1,21 @@
+{
+	"Repository Provider": {
+		"prefix": "repositoryProviderF",
+		"body": [
+			"final ${1}RepositoryProvider = Provider<I${1/(.*)/${1:/capitalize}/}Repository>((ref) {",
+			"    return ${1/(.*)/${1:/capitalize}/}Repository();",
+			"});",
+		],
+		"description": "Repository Provider from file name",
+	},
+	"State Notifier Provider": {
+		"prefix": "stateNotifierProviderF",
+		"body": [
+			"final ${1}Provider =",
+    		"    StateNotifierProvider.autoDispose<${1/(.*)/${1:/capitalize}/}Notifier, ${1/(.*)/${1:/capitalize}/}State>(",
+  			"  (ref) => ${1/(.*)/${1:/capitalize}/}Notifier(),",
+			");",
+		],
+		"description": "State Notifier Provider from file name",
+	},
+}

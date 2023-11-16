@@ -1,0 +1,43 @@
+{
+	"File name Consumer widget": {
+		"prefix": "consumerWF",
+		"body": [
+			"class ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}} extends ConsumerWidget {",
+			"  const ${1}({super.key});",
+			"",
+			"  @override",
+			"  Widget build(BuildContext context, WidgetRef ref) {",
+			"    return ${2: Container}(",
+			"      child: ${3: null},",
+			"    );",
+			"  }",
+			"}",
+		],
+		"description": "Riverpod consumer widget from File Name",
+	},
+	"File name Hook Consumer widget": {
+		"prefix": "hookConsumerWF",
+		"body": [
+			"class ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}} extends HookConsumerWidget {",
+			"  const ${1}({super.key});",
+			"",
+			"  @override",
+			"  Widget build(BuildContext context, WidgetRef ref) {",
+			"    return ${2: Container}(",
+			"      child: ${3: null},",
+			"    );",
+			"  }",
+			"}",
+		],
+		"description": "Riverpod hooks consumer widget from File Name",
+	},
+	"File named state notifier": {
+		"prefix": "stateNotifierF",
+		"body": [
+			"class ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}} extends StateNotifier<${2:State}> {",
+			"  ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}}(): super(${3:initial});",
+			"}",
+		],
+		"description": "Create State Notifier from File Name",
+	},
+}
